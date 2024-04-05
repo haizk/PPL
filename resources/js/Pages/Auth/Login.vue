@@ -101,5 +101,12 @@ const submit = () => {
                 </PrimaryButton>
             </div>
         </form>
+        <!--Google OAuth Button-->
+        <div class="flex items-center justify-end mt-4">
+            <!--Google logo using tailwinds-->
+            <a href="/google/redirect">
+                <PrimaryButton class="mt-4"> Log in with Google </PrimaryButton>
+            </a>
+        </div>
     </AuthenticationCard>
 </template>
