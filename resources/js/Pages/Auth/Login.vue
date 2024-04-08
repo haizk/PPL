@@ -104,7 +104,7 @@ const submit = () => {
         <!--Google OAuth Button-->
         <div class="flex items-center justify-end mt-4">
             <!--Google logo using tailwinds-->
-            <a href="/google/redirect">
+            <a href="/social/google">
                 <div class="px-6 sm:px-0 max-w-sm">
                     <button
                         type="button"
