@@ -13,6 +13,7 @@ Route::get('/', function () {
     ]);
 });
 
+// User routes
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -23,6 +24,7 @@ Route::middleware([
     })->name('dashboard');
 });
 
+// Admin routes
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -30,8 +32,11 @@ Route::middleware([
     'can:admin',
 ])->group(function () {
     Route::get('/admin', function () {
-        return Inertia::render('Admin');
+        return Inertia::render('Admin/Dashboard');
     })->name('admin.dashboard');
+    Route::get('/admin/users', function () {
+        return Inertia::render('Admin/Users');
+    })->name('admin.users');
 });
 
 Route::get('/social/google', [App\Http\Controllers\GoogleLoginController::class, 'redirectToGoogle'])->name('google.redirect');
