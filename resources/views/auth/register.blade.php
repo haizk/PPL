@@ -1,60 +1,95 @@
-<x-guest-layout>
-    <x-authentication-card>
-        <x-slot name="logo">
-            <x-authentication-card-logo />
-        </x-slot>
-
-        <x-validation-errors class="mb-4" />
-
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
-
-            <div>
-                <x-label for="name" value="{{ __('Name') }}" />
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            </div>
-
-            <div class="mt-4">
-                <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            </div>
-
-            <div class="mt-4">
-                <x-label for="password" value="{{ __('Password') }}" />
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-            </div>
-
-            <div class="mt-4">
-                <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-            </div>
-
-            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                <div class="mt-4">
-                    <x-label for="terms">
-                        <div class="flex items-center">
-                            <x-checkbox name="terms" id="terms" required />
-
-                            <div class="ms-2">
-                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Terms of Service').'</a>',
-                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Privacy Policy').'</a>',
-                                ]) !!}
-                            </div>
+@extends('layouts.auth')
+@section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5 col-lg-6 col-md-7 mx-auto mt-5">
+                <div class="card radius-10">
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <h4>Sign Up</h4>
+                            <p>Creat New account</p>
                         </div>
-                    </x-label>
+                        <form class="form-body row g-3" method="POST" action="{{ route('register') }}">
+                            @csrf
+                            <!-- <div class="col-12 col-lg-12">
+                        <div class="d-grid gap-2">
+                          <a
+                            href="javascript:;"
+                            class="btn border border-2 border-primary"
+                            ><img
+                              src="assets/images/icons/google.png"
+                              width="20"
+                              alt=""
+                            /><span class="ms-3 fw-500"
+                              >Sign up with Google</span
+                            ></a
+                          >
+                          <a
+                            href="javascript:;"
+                            class="btn border border-2 border-dark"
+                            ><img
+                              src="assets/images/icons/apple-black-logo.png"
+                              width="20"
+                              alt=""
+                            /><span class="ms-3 fw-500">Sign up with Apple</span></a
+                          >
+                        </div>
+                      </div> -->
+                            <div class="col-12 col-lg-12">
+                                <div class="position-relative border-bottom my-3">
+                                    <div class="position-absolute seperator-2 translate-middle-y">
+                                        OR
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="name" class="form-label">{{ __('Name') }}</label>
+                                <input class="form-control" id="name" type="text" name="name"
+                                    :value="old('name')" required autofocus autocomplete="name" />
+                            </div>
+                            <div class="col-12">
+                                <label for="email" class="form-label">{{ __('Email') }}</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    :value="old('email')" required autocomplete="username" />
+                            </div>
+                            <div class="col-12">
+                                <label for="password" class="form-label">{{ __('Password') }}</label>
+                                <input type="password" class="form-control" id="password" name="password" required
+                                    autocomplete="new-password" />
+                            </div>
+                            <div class="col-12">
+                                <label for="password_confirmation" class="form-label">{{ __('Confirm Password') }}</label>
+                                <input type="password" class="form-control" id="password_confirmation"
+                                    name="password_confirmation" required autocomplete="new-password" />
+                            </div>
+                            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+                                <div class="col-12 col-lg-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+                                            checked />
+                                        <label class="form-check-label" for="flexCheckChecked">
+                                            I agree the Terms and Conditions
+                                        </label>
+                                    </div>
+                                </div>
+                            @endif
+                            <div class="col-12 col-lg-12">
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary">
+                                        Sign Up
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-12 text-center">
+                                <p class="mb-0">
+                                    Already have an account?
+                                    <a href="{{ route('login') }}">Sign in</a>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            @endif
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ms-4">
-                    {{ __('Register') }}
-                </x-button>
             </div>
-        </form>
-    </x-authentication-card>
-</x-guest-layout>
+        </div>
+    </div>
+@endsection
