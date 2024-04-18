@@ -15,3 +15,23 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+// main dashboard
+Route::get('/dashboard-index', function () {
+       return view('dashboard.index');
+   })->name('dashboard-index');
+
+//    add video
+   Route::get('/list', function () {
+       return view('dashboard.add-video.list');
+   })->name('list');
+     Route::get('/edit', function () {
+       return view('dashboard.add-video.edit');
+   })->name('edit');
+   Route::get('/create', function () {
+       return view('dashboard.add-video.create');
+   })->name('create');
+
+      Route::get('/detail', function () {
+       return view('dashboard.detail-video');
+   })->name('detail');
