@@ -37,6 +37,9 @@ Route::middleware([
     Route::get('/admin/users', function () {
         return Inertia::render('Admin/Users');
     })->name('admin.users');
+    Route::get('/admin/table', function () {
+        return Inertia::render('Admin/Table');
+    })->name('admin.table');
 });
 
 Route::get('/social/google', [App\Http\Controllers\GoogleLoginController::class, 'redirectToGoogle'])->name('google.redirect');

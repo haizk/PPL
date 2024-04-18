@@ -12,9 +12,6 @@ defineProps({
     title: String,
 });
 
-const props = usePage(); //delete later
-console.log(props.props.auth.user);
-
 const showingNavigationDropdown = ref(false);
 
 const switchToTeam = (team) => {
