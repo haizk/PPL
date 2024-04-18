@@ -17,7 +17,7 @@
                                                 <div class="product-gallery owl-carousel owl-theme border rounded mb-3 p-3"
                                                     data-slider-id="1">
                                                     <div class="item">
-                                                        <img src="assets/images/product-gallery/01.png" class="img-fluid"
+                                                        <img src="{{ asset('assets\images\foto-1.jpg') }}" class="img-fluid"
                                                             alt="" />
                                                     </div>
 

@@ -15,8 +15,11 @@
     <link href="{{ asset('assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
 
-    <link href="{{ asset('assets/css/metisMenu.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/css/owl.carousel.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/plugins/datatable/css/metisMenu.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/plugins/datatable/css/owl.carousel.min.css') }}" rel="stylesheet" />
+
+    <link href="{{ asset('assets/plugins/datatable/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" />
+
 
     <!-- CSS Files -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -29,7 +32,6 @@
     <link href="{{ asset('assets/css/dark-theme.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/semi-dark.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/css/header-colors.css') }}" rel="stylesheet" />
-
 
     <title>Tugas PPL</title>
 </head>
@@ -62,15 +64,18 @@
     <script src="{{ asset('assets/plugins/chartjs/chart.min.js') }}"></script>
     <script src="{{ asset('assets/js/index.js') }}"></script>
 
-    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/js/owl.carousel2.thumbs.min.js') }}"></script>
-    <script src="{{ asset('assets/js/product-details.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/js/owl.carousel2.thumbs.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/js/product-details.js') }}"></script>
+
+    <script src="{{ asset('assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/js/table-datatable.js') }}"></script>
+    <script src="{{ asset('assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+
+
     <!-- Main JS-->
     <script src="{{ asset('assets/js/main.js') }}"></script>
 
-    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('js/owl.carousel2.thumbs.min.js') }}"></script>
-    <script src="{{ asset('js/product-details.js') }}"></script>
 
 
 

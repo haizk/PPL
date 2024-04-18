@@ -48,3 +48,7 @@ Route::get('/dashboard-index', function () {
       Route::get('/detail', function () {
        return view('dashboard.detail-video');
    })->name('detail');
+
+         Route::get('/tabel', function () {
+       return view('dashboard.table');
+   })->name('tabel');

@@ -77,29 +77,22 @@
             </a>
         </li>
         <li>
-            <a href="pages-edit-profile.html">
+            <a href="{{ route('list') }}">
                 <div class="parent-icon">
                     <ion-icon name="create-outline"></ion-icon>
                 </div>
-                <div class="menu-title">Edit Profile</div>
+                <div class="menu-title">List</div>
             </a>
         </li>
         <li>
-            <a href="pages-invoices.html">
+            <a href="{{ route('tabel') }}">
                 <div class="parent-icon">
                     <ion-icon name="receipt-outline"></ion-icon>
                 </div>
-                <div class="menu-title">Invoice</div>
+                <div class="menu-title">Tabel</div>
             </a>
         </li>
-        <li>
-            <a href="pages-to-do.html">
-                <div class="parent-icon">
-                    <ion-icon name="shield-checkmark-outline"></ion-icon>
-                </div>
-                <div class="menu-title">Invoice</div>
-            </a>
-        </li>
+
 
     </ul>
     <!--end navigation-->
