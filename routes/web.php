@@ -15,6 +15,9 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/upload', function () {
+        return view('upload');
+    })->name('upload');
 });
 
 // Admin routes
@@ -28,3 +31,7 @@ Route::middleware([
         return view('admin.dashboard');
     })->name('admin.dashboard');
 });
+
+// OAuth routes
+Route::get('/auth/google', [App\Http\Controllers\OAuthController::class, 'redirectToGoogle'])->name('auth.google');
+Route::get('/auth/google/callback', [App\Http\Controllers\OAuthController::class, 'handleGoogleCallback']);
