@@ -1,95 +1,49 @@
-@extends('layouts.auth')
-@section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-5 col-lg-6 col-md-7 mx-auto mt-5">
-                <div class="card radius-10">
-                    <div class="card-body p-4">
-                        <div class="text-center">
-                            <h4>Sign Up</h4>
-                            <p>Creat New account</p>
-                        </div>
-                        <form class="form-body row g-3" method="POST" action="{{ route('register') }}">
-                            @csrf
-                            <!-- <div class="col-12 col-lg-12">
-                        <div class="d-grid gap-2">
-                          <a
-                            href="javascript:;"
-                            class="btn border border-2 border-primary"
-                            ><img
-                              src="assets/images/icons/google.png"
-                              width="20"
-                              alt=""
-                            /><span class="ms-3 fw-500"
-                              >Sign up with Google</span
-                            ></a
-                          >
-                          <a
-                            href="javascript:;"
-                            class="btn border border-2 border-dark"
-                            ><img
-                              src="assets/images/icons/apple-black-logo.png"
-                              width="20"
-                              alt=""
-                            /><span class="ms-3 fw-500">Sign up with Apple</span></a
-                          >
-                        </div>
-                      </div> -->
-                            <div class="col-12 col-lg-12">
-                                <div class="position-relative border-bottom my-3">
-                                    <div class="position-absolute seperator-2 translate-middle-y">
-                                        OR
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <label for="name" class="form-label">{{ __('Name') }}</label>
-                                <input class="form-control" id="name" type="text" name="name"
-                                    :value="old('name')" required autofocus autocomplete="name" />
-                            </div>
-                            <div class="col-12">
-                                <label for="email" class="form-label">{{ __('Email') }}</label>
-                                <input type="email" class="form-control" id="email" name="email"
-                                    :value="old('email')" required autocomplete="username" />
-                            </div>
-                            <div class="col-12">
-                                <label for="password" class="form-label">{{ __('Password') }}</label>
-                                <input type="password" class="form-control" id="password" name="password" required
-                                    autocomplete="new-password" />
-                            </div>
-                            <div class="col-12">
-                                <label for="password_confirmation" class="form-label">{{ __('Confirm Password') }}</label>
-                                <input type="password" class="form-control" id="password_confirmation"
-                                    name="password_confirmation" required autocomplete="new-password" />
-                            </div>
-                            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                                <div class="col-12 col-lg-12">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
-                                            checked />
-                                        <label class="form-check-label" for="flexCheckChecked">
-                                            I agree the Terms and Conditions
-                                        </label>
-                                    </div>
-                                </div>
-                            @endif
-                            <div class="col-12 col-lg-12">
-                                <div class="d-grid">
-                                    <button type="submit" class="btn btn-primary">
-                                        Sign Up
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-12 text-center">
-                                <p class="mb-0">
-                                    Already have an account?
-                                    <a href="{{ route('login') }}">Sign in</a>
-                                </p>
-                            </div>
-                        </form>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/login-style.css') }}" />
+</head>
+
+<body>
+    <!-- Regist -->
+    <div class="container" id="container">
+        <!-- login -->
+        <div class="form-container login-container">
+            <form method="POST" action="{{ route('register') }}">
+                @csrf
+                <h1>Start Your Journey Now!!</h1>
+                <input type="text" id="name" name="name" :value="old('name')" required autofocus
+                    autocomplete="name" />
+                <input type="email" id="email" name="email" :value="old('email')" required
+                    autocomplete="username" />
+                <input type="password" placeholder="Password" id="password" name="password" required
+                    autocomplete="new-password" />
+                <input type="password" placeholder="Password" id="password_confirmation" name="password_confirmation"
+                    required autocomplete="new-password" />
+                <div class="content">
+                    <div class="pass-link">
+                        <a href="{{ route('login') }}">Login</a>
                     </div>
                 </div>
-            </div>
+                <button>Register</button>
+                <div class="daftar-tombol">
+                    <a href="#">atau</a>
+                    <button id="register-mobile">Daftar</button>
+                </div>
+            </form>
         </div>
+
+        <!-- overlay -->
+
+        <div class="overlay-container" style="background-image: url('assets/images/frame_2.webp')"></div>
     </div>
-@endsection
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

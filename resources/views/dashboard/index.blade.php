@@ -39,7 +39,7 @@
             <!--end breadcrumb-->
 
 
-            <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-4">
+            {{-- <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-4">
                 <div class="col">
                     <div class="card radius-10">
                         <div class="card-body">
@@ -121,10 +121,10 @@
                     </div>
                 </div>
             </div>
-            <!--end row-->
+            <!--end row--> --}}
 
 
-            <div class="row row-cols-1 row-cols-lg-3">
+            {{-- <div class="row row-cols-1 row-cols-lg-3">
                 <div class="col">
                     <div class="card radius-10 w-100">
                         <div class="card-body">
@@ -655,12 +655,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!--end row-->
 
 
 
-            <div class="card radius-10 w-100">
+            {{-- <div class="card radius-10 w-100">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <h6 class="mb-0">Recent Orders</h6>
@@ -912,14 +912,9 @@
                         </table>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <!-- end page content-->
     </div>
     <!--end page content wrapper-->
-
-
-
-
-
 @endsection

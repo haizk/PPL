@@ -1,77 +1,54 @@
-@extends('layouts.auth')
-@section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-4 col-lg-5 col-md-7 mx-auto mt-5">
-                <div class="card radius-10">
-                    <div class="card-body p-4">
-                        <div class="text-center">
-                            <h4>Sign In</h4>
-                            <p>Sign In to your account</p>
-                        </div>
-                        <form class="form-body row g-3" method="POST" action="{{ route('login') }}">
-                            @csrf
-                            {{-- Add on buat login with gmail --}}
-                            {{-- <div class="col-12 col-lg-12">
-                                    <div class="d-grid gap-2">
-                                        <a href="javascript:;" class="btn border border-2 border-primary"><img
-                                                src="assets/images/icons/google.png" width="20"
-                                                alt="" /><span class="ms-3 fw-500">Sign in with
-                                                Google</span></a>
-                                        <a href="javascript:;" class="btn border border-2 border-dark"><img
-                                                src="assets/images/icons/apple-black-logo.png" width="20"
-                                                alt="" /><span class="ms-3 fw-500">Sign in with Apple</span></a>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-lg-12">
-                                    <div class="position-relative border-bottom my-3">
-                                        <div class="position-absolute seperator-2 translate-middle-y">
-                                            OR
-                                        </div>
-                                    </div>
-                                </div> --}}
-                            <div class="col-12">
-                                <label for="email" class="form-label">Email</label>
-                                <input name="email" :value="old('email')" required autofocus autocomplete="username"
-                                    class="form-control" id="email" placeholder="abc@example.com" />
-                            </div>
-                            <div class="col-12">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" name="password" required autocomplete="current-password"
-                                    class="form-control" id="password" />
-                            </div>
-                            <div class="col-12 col-lg-6">
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" role="switch" id="remember_me"
-                                        name="remember" />
-                                    <label class="form-check-label" for="remember">{{ __('Remember me') }}</label>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-6 text-end">
-                                @if (Route::has('password.request'))
-                                    <a href="{{ route('password.request') }}">{{ __('Forgot your password?') }}</a>
-                                @endif
-                            </div>
-                            <div class="col-12 col-lg-12">
-                                <div class="d-grid">
-                                    <button type="submit" class="btn btn-primary">
-                                        Sign In
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-12 text-center">
-                                <p class="mb-0">
-                                    Don't have an account?
-                                    <a href="{{ route('register') }}">Sign up</a>
-                                </p>
-                            </div>
-                        </form>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/login-style.css') }}" />
+</head>
+
+<body>
+    <!-- Regist -->
+    <div class="container" id="container">
+        <!-- login -->
+        <div class="form-container login-container">
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <h1>Start Your Journey Now!!</h1>
+                <input type="email" id="email" name="email" :value="old('email')" required autofocus
+                    autocomplete="username" />
+                <input type="password" placeholder="Password" id="password" name="password" required
+                    autocomplete="current-password" />
+                <div class="content">
+                    <div class="checkbox">
+                        <input type="checkbox" name="checkbox" id="checkbox" />
+                        <label>Remember me </label>
+                    </div>
+                    <div class="pass-link">
+                        @if (Route::has('password.request'))
+                            <a href="{{ route('password.request') }}">Reset Pass</a>
+                        @endif
+                    </div>
+                    <div class="pass-link">
+                        <a href="{{ route('register') }}">Register</a>
                     </div>
                 </div>
-            </div>
+                <button>Login</button>
+                <div class="daftar-tombol">
+                    <a href="#">atau</a>
+                    <button id="register-mobile">Daftar</button>
+                </div>
+            </form>
         </div>
+
+        <!-- overlay -->
+
+        <div class="overlay-container" style="background-image: url('assets/images/frame_2.webp')"></div>
     </div>
 
-    </div>
-    <!--end wrapper-->
-@endsection
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

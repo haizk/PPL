@@ -18,7 +18,7 @@
             </a>
         </div>
         <div class="text-center">
-            <p class="my-4">Copyright © 2021 UI Admin by Codervent.</p>
+            <p class="my-4">PPL Kelompok 3.</p>
         </div>
     </div>
 </footer>
