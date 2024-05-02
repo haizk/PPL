@@ -15,9 +15,10 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    Route::get('/upload', function () {
-        return view('upload');
-    })->name('upload');
+    Route::get('/dashboard/upload', function () {
+        return view('dashboard.upload');
+    })->name('dashboard.upload');
+    Route::post('/dashboard/upload', [App\Http\Controllers\APIController::class, 'upload'])->name('dashboard.upload.post');
 });
 
 // Admin routes
