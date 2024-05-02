@@ -7,7 +7,7 @@
         supported formats: mp4, quicktime, webm, matroska
     </p>
 
-    <form action="{{ route('dashboard.upload.post') }}" method="post" enctype="multipart/form-data" class="mt-6">
+    <form action="{{ route('dashboard.upload') }}" method="post" enctype="multipart/form-data" class="mt-6">
         @csrf
         <input type="file" name="file" class="border border-gray-300 p-2 w-full" accept="video/mp4,video/quicktime,video/webm,video/x-matroska">
         <button type="submit" class="bg-blue-500 text-white p-2 w-full mt-4">Upload</button>
