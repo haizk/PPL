@@ -14,6 +14,12 @@ class VideoController extends Controller
 
     public function details(\App\Models\Video $video)
     {
+        $user = auth()->user();
+
+        if ($user->id != $video->user_id && $user->role != 'admin') {
+            abort(403);
+        }
+
         return view('dashboard.details', ['video' => $video]);
     }
 }
