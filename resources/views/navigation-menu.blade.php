@@ -18,6 +18,9 @@
                     <x-nav-link href="{{ route('dashboard.upload') }}" :active="request()->routeIs('dashboard.upload')">
                         {{ __('Upload') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('dashboard.history') }}" :active="request()->routeIs('dashboard.history')">
+                        {{ __('History') }}
+                    </x-nav-link>
                 </div>
             </div>
 

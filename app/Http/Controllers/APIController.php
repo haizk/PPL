@@ -20,6 +20,13 @@ class APIController extends Controller
                 'body' => 'haizk',
                 'file' => fopen($file->getRealPath(), 'r'),
             ]);
+
+            $video = new \App\Models\Video();
+            $video->user_id = auth()->id();
+            $video->title = $file->getClientOriginalName();
+            $video->path = $file->store('videos', 'public');
+            $video->result = $response->body();
+            $video->save();
         } catch (\Exception $e) {
             $response = $e->getMessage();
         }

@@ -19,6 +19,7 @@ Route::middleware([
         return view('dashboard.upload');
     })->name('dashboard.upload');
     Route::post('/dashboard/upload', [App\Http\Controllers\APIController::class, 'upload'])->name('dashboard.upload');
+    Route::get('/dashboard/history', [App\Http\Controllers\VideoController::class, 'history'])->name('dashboard.history');
 });
 
 // Admin routes
