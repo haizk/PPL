@@ -6,18 +6,30 @@
                     <h1 class="text-2xl font-medium text-gray-900">
                         history
                     </h1>
+                    @if ($videos->count() == 0)
+                    <p class="mt-6 text-gray-500 leading-relaxed">
+                        no videos found
+                    </p>
+                    @else
                     @foreach($videos as $video)
                     <div class="mt-4">
-                        <h2 class="text-xl font-medium text-gray-900">{{ $video->title }}</h2>
+                        <a href="{{ route('dashboard.details', $video) }}">
+                            <h2 class="text-xl font-medium text-gray-900">{{ $video->title }}</h2>
+                        </a>
                         <p class="text-gray-500 leading-relaxed">{{ $video->created_at->timezone('Etc/GMT-7') }}</p>
-                        <video class="mt-4 w-full" controls>
+                        <video class="mt-4 w-full" controls style="max-height: 500px">
                             <source src="{{ asset('storage/' . $video->path) }}">
                             Your browser does not support the video tag.
                         </video>
                         <p class="mt-4 text-gray-500 leading-relaxed">{{ $video->path }}</p>
                         <p class="mt-4 text-gray-500 leading-relaxed">{{ $video->result }}</p>
+                        <br>
+                        <hr>
                     </div>
                     @endforeach
+                    <br>
+                    {{ $videos->links() }}
+                    @endif
                 </div>
             </div>
         </div>
