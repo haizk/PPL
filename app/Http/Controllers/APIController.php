@@ -9,6 +9,7 @@ class APIController extends Controller
 {
     public function upload(Request $request)
     {
+        $user = auth()->user();
         try {
             $request->validate([
                 'file' => 'required|file|mimetypes:video/mp4,video/quicktime,video/webm,video/x-matroska',
@@ -31,6 +32,6 @@ class APIController extends Controller
         } catch (\Exception $e) {
             $response = $e->getMessage();
         }
-        return view('dashboard.upload', ['result' => $response]);
+        return view('dashboard.details', ['result' => $response, 'video'=>$video]);
     }
 }

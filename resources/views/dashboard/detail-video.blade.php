@@ -49,7 +49,7 @@
                                                     <dd class="col-sm-9">{{ $video->id }}</dd>
                                                     <dt class="col-sm-3">Nama Pengirim</dt>
                                                     <dd class="col-sm-9">Lorem</dd>
-                                                    <dt class="col-sm-3">Result</dt>
+                                                    <dt class="col-sm-3">Id Video</dt>
                                                     <dd class="col-sm-9">{{ $video->result }}</dd>
                                                 </dl>
 

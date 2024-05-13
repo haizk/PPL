@@ -1,0 +1,286 @@
+@font-face {
+    font-family: "frankleinmedium";
+    src: url("frankleinmedium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "frankleinbold";
+    src: url("frankleinbold.ttf") format("truetype");
+}
+
+:root {
+    /* BAckground */
+    --putih: #f6f6f6;
+    --ungu: #7056ee;
+    --cyan: #def8da;
+    --cream: #e2dcd0;
+    --abu: #d3d3d3;
+
+    /* Primary */
+    --hitam: #343538;
+    --oren: #dd6422;
+
+    /* objek */
+    --kuning: #f6f7a5;
+    --biru: #87ceda;
+    --ungu-muda: #c9c0fc;
+    --pink: #ca6977;
+}
+
+body {
+    background-color: var(--abu);
+    font-family: "frankleinmedium", sans-serif;
+}
+
+.page-wrapper {
+    max-width: 69rem;
+    margin: 0 auto;
+
+    padding: 2rem 6.25rem;
+}
+
+#section-1 {
+    background-color: var(--putih);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border: 1px solid var(--hitam);
+}
+
+#section-2 {
+    background-color: var(--cream);
+    border-bottom: 1px solid var(--hitam);
+    border-left: 1px solid var(--hitam);
+    border-right: 1px solid var(--hitam);
+}
+#section-3 {
+    background-color: var(--cyan);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom: 1px solid var(--hitam);
+    border-left: 1px solid var(--hitam);
+    border-right: 1px solid var(--hitam);
+}
+
+#section-4 {
+    background-color: var(--pink);
+    border-bottom: 1px solid var(--hitam);
+    border-left: 1px solid var(--hitam);
+    border-right: 1px solid var(--hitam);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.section {
+    padding: 0 5rem;
+}
+
+nav {
+    font-size: 1.5rem;
+    padding: 1.8rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav .navigation {
+    display: flex;
+    font-size: 1.25rem;
+    gap: 1rem;
+}
+
+nav .navigation a {
+    text-decoration: none;
+    color: var(--hitam);
+}
+nav .navigation .login a:focus nav,
+.navigation .login a:hover {
+    color: var(--putih);
+}
+nav .navigation .login {
+    border: 1px solid var(--hitam);
+    padding: 0.1rem 1rem;
+    border-radius: 10px;
+    transition: 0.25s;
+}
+
+nav .navigation .login:hover,
+nav .navigation .login:focus {
+    color: var(--putih);
+    border-color: var(--putih);
+    box-shadow: inset 6.5em 0 0 0 var(--hitam);
+}
+
+.navigation .register a:hover,
+.navigation .register a:focus {
+    color: var(--oren);
+    transition: 0.25s;
+}
+.section1 main {
+    padding-top: 7rem;
+    display: flex;
+}
+
+.section1 main .hero h1 {
+    font-size: 3.5rem;
+}
+
+button {
+    background-color: var(--oren);
+    border: 1px solid var(--hitam);
+    border-radius: 1.6rem;
+    font-size: 2.25rem;
+    width: 15.75rem;
+    height: 4.625rem;
+    color: var(--putih);
+}
+.offset:hover,
+.offset:focus {
+    box-shadow: 0.3em 0.3em 0 0 var(--hitam);
+    transition: 0.25s;
+}
+button a {
+    text-decoration: none;
+    color: var(--putih);
+}
+.section1 .under {
+    display: flex;
+    margin-top: 4rem;
+    gap: 7rem;
+}
+
+.section1 .under .rectangle {
+    width: 300px;
+    height: 134px;
+    background-color: var(--cream);
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem;
+    border: 1px solid var(--hitam);
+    margin-top: 4rem;
+}
+
+.section1 .under .rectangle .atas {
+    display: flex;
+    gap: 1rem;
+}
+
+.section1 .under .rectangle .bawah p {
+    font-size: 1.5rem;
+}
+
+/* Section 2 */
+.page-wrapper .about {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+}
+.page-wrapper .about h1 {
+    font-size: 3rem;
+}
+.page-wrapper .about p {
+    width: 30ch;
+    font-size: 1.25rem;
+}
+
+.page-wrapper .how-it-work {
+    margin-top: 5%;
+}
+.page-wrapper .how-it-work .rectangle {
+    width: 100%;
+}
+
+.page-wrapper .how-it-work .rectangle .judul {
+    border: 1px solid var(--hitam);
+    background-color: var(--putih);
+    padding: 0rem 2rem;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+.page-wrapper .how-it-work .rectangle .judul .circle {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.page-wrapper .how-it-work .rectangle .judul .circle .circles {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid var(--hitam);
+}
+
+.page-wrapper .how-it-work .rectangle .judul .circle .circles:nth-child(1) {
+    background-color: var(--hitam);
+}
+
+.page-wrapper .how-it-work .rectangle .judul .circle .circles:nth-child(2) {
+    background-color: var(--kuning);
+}
+
+.page-wrapper .how-it-work .rectangle .judul .circle .circles:nth-child(3) {
+    background-color: var(--pink);
+}
+
+.page-wrapper .how-it-work .rectangle .poin {
+    background-color: var(--ungu);
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.page-wrapper .how-it-work .rectangle .poin .point p {
+    width: 30ch;
+    color: var(--putih);
+}
+
+/* Section 3 */
+.page-wrapper .benefit {
+    border: 1px solid var(--hitam);
+    background-color: var(--ungu-muda);
+    padding: 2rem;
+    border-radius: 2rem;
+    width: 70%;
+}
+
+.page-wrapper .benefit h2 {
+    font-size: 2.25rem;
+    font-family: "frankleinbold", sans-serif;
+}
+.page-wrapper .benefit .list {
+    display: flex;
+    gap: 4rem;
+    border-bottom: 0.5px solid var(--hitam);
+}
+
+.page-wrapper .benefit .list .desc p {
+    width: 40ch;
+    font-size: 1rem;
+}
+
+.page-wrapper .benefit .list .lists {
+    border: 1px solid var(--hitam);
+    width: 20%;
+    height: 70%;
+    border-radius: 1.25rem;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.benefit .list:nth-child(2) .lists {
+    background-color: var(--kuning);
+}
+.benefit .list:nth-child(3) {
+    margin: 1rem 0;
+}
+.benefit .list:nth-child(3) .lists {
+    background-color: var(--ungu);
+}
+
+.benefit .list:nth-child(4) .lists {
+    background-color: var(--pink);
+}
