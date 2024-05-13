@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class VideoController extends Controller
@@ -20,6 +21,11 @@ class VideoController extends Controller
             abort(403);
         }
 
-        return view('dashboard.details', ['video' => $video]);
+        $comments = Comment::where('video_id', $video->id)->get();
+
+        return view('dashboard.details', [
+            'video' => $video,
+            'comments' => $comments
+        ]);
     }
 }
