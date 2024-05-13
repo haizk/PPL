@@ -28,6 +28,9 @@ class APIController extends Controller
             $video->slug = pathinfo(str_replace('videos/', '', $video->path), PATHINFO_FILENAME);
             $video->result = $response->body();
             $video->save();
+
+            $user = $video->user;
+            $user_name = $user->name;
         } catch (\Exception $e) {
             $response = $e->getMessage();
         }

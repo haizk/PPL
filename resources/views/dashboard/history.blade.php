@@ -17,7 +17,7 @@
                             <h2 class="text-xl font-medium text-gray-900">{{ $video->title }}</h2>
                         </a>
                         <p class="text-gray-500 leading-relaxed">{{ $video->created_at->timezone('Etc/GMT-7') }}</p>
-                        <video class="mt-4 w-full" controls style="max-height: 500px">
+                        <video class="mt-4 w-full" controls style="max-height: 500px" controls>
                             <source src="{{ asset('storage/' . $video->path) }}">
                             Your browser does not support the video tag.
                         </video>
