@@ -14,34 +14,16 @@
                                 <a href="javascript:;"><ion-icon name="home-outline"></ion-icon></a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Form Elements
+                                Upload Video
                             </li>
                         </ol>
                     </nav>
                 </div>
-                <div class="ms-auto">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-outline-primary">
-                            Settings
-                        </button>
-                        <button type="button"
-                            class="btn btn-outline-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
-                            data-bs-toggle="dropdown">
-                            <span class="visually-hidden">Toggle Dropdown</span>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">
-                            <a class="dropdown-item" href="javascript:;">Action</a>
-                            <a class="dropdown-item" href="javascript:;">Another action</a>
-                            <a class="dropdown-item" href="javascript:;">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="javascript:;">Separated link</a>
-                        </div>
-                    </div>
-                </div>
+
             </div>
             <!--end breadcrumb-->
 
-            <div class="card">
+            {{-- <div class="card">
                 <div class="card-header">
                     <h6 class="mb-0">Text Input</h6>
                 </div>
@@ -54,9 +36,9 @@
                     <input class="form-control" type="text" placeholder="Readonly input here..."
                         aria-label="readonly input example" readonly="" />
                 </div>
-            </div>
+            </div> --}}
 
-            <div class="card">
+            {{-- <div class="card">
                 <div class="card-header">
                     <h6 class="mb-0">Select Input</h6>
                 </div>
@@ -68,22 +50,26 @@
                         <option value="3">Three</option>
                     </select>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="card">
-                <div class="card-header">
-                    <h6 class="mb-0">File Input</h6>
-                </div>
-                <div class="card-body">
-                    <div class="mb-3">
-                        <label for="formFile" class="form-label">Default file input example</label>
-                        <input class="form-control" type="file" id="formFile" />
+                <form action="{{ route('dashboard.upload') }}" method="post" enctype="multipart/form-data" class="mt-6">
+                    @csrf
+                    <div class="card-header">
+                        <h6 class="mb-0">File Input</h6>
                     </div>
-                    <div class="mb-3">
-                        <label for="formFileMultiple" class="form-label">Multiple files input example</label>
-                        <input class="form-control" type="file" id="formFileMultiple" multiple="" />
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">supported formats: mp4, quicktime, webm,
+                                matroska</label>
+                            <input type="file" name="file"
+                                accept="video/mp4,video/quicktime,video/webm,video/x-matroska" class="form-control"
+                                type="file" />
+                            <button type="submit" class="bg-blue-500 text-white p-2 w-full mt-4">Upload</button>
+
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
 
 
@@ -91,7 +77,7 @@
 
 
 
-        <div class="card">
+        {{-- <div class="card">
             <div class="card-header">
                 <h6 class="mb-0">Input Mask</h6>
             </div>
@@ -143,7 +129,7 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div> --}}
     </div>
     <!-- end page content-->
     </div>
