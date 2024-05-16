@@ -17,15 +17,14 @@
                                                 <div class="product-gallery owl-carousel owl-theme border rounded mb-3 p-3"
                                                     data-slider-id="1">
                                                     <div class="item">
-
-                                                        <video class="mt-4 w-full" controls class="img-fluid">
+                                                        
+                                                        <video controls class="img-fluid">
                                                             <source src="{{ asset('storage/' . $video->path) }}">
                                                             Your browser does not support the video tag.
                                                         </video>
+                                                    
                                                     </div>
-
                                                 </div>
-
                                             </div>
                                         </div>
                                         <div class="col-12 col-lg-7">
@@ -33,8 +32,6 @@
                                                 <h3 class="mt-3 mt-lg-0 mb-0">
                                                     {{ $video->title }}
                                                 </h3>
-
-
                                                 <div class="mt-3">
                                                     <h6>Deskripsi :</h6>
                                                     <p class="mb-0">
@@ -47,10 +44,31 @@
                                                 <dl class="row mt-3">
                                                     <dt class="col-sm-3">Id Video</dt>
                                                     <dd class="col-sm-9">{{ $video->id }}</dd>
-                                                    <dt class="col-sm-3">Nama Pengirim</dt>
+                                                    <dt class="col-sm-3">{{ $video->user->name }}</dt>
                                                     <dd class="col-sm-9">Lorem</dd>
                                                     <dt class="col-sm-3">Result</dt>
-                                                    <dd class="col-sm-9">{{ $video->result }}</dd>
+                                                    <dd class="col-sm-9">{{ $video->result }}</dd>                                                        @php
+                                                            $result = json_decode($video->result, true); // Decode the JSON string
+                                                        @endphp
+
+                                                        @if($result)
+                                                            @php
+                                                                // Ubah label sesuai dengan kondisi
+                                                                $label = ($result['label'] == 0) ? 'dribbling' : 'dunk';
+
+                                                                // Ubah confidence ke format persen
+                                                                $confidence = number_format($result['confidence'] * 100, 2) . '%';
+                                                            @endphp
+
+                                                            <dt class="col-sm-3">Label</dt>
+                                                            <dd class="col-sm-9">{{ $label }}</dd>
+                                                            <dt class="col-sm-3">Confidence</dt>
+                                                            <dd class="col-sm-9">{{ $confidence }}</dd>    
+                                                        @endif
+                                                    <dt class="col-sm-3">Created At</dt>
+                                                    <dd class="col-sm-9">{{ $video->created_at }}</dd> 
+                                                    <dt class="col-sm-3">Updated At</dt>
+                                                    <dd class="col-sm-9">{{ $video->updated_at }}</dc>
                                                 </dl>
 
                                                 <!--end row-->
@@ -128,63 +146,46 @@
                                                 <div class="product-review">
                                                     <h5 class="mb-4">Kolom Diskusi</h5>
                                                     <div class="review-list">
-                                                        <div class="d-flex align-items-start">
-                                                            <div class="review-user">
-                                                                <img src="assets/images/avatars/01.png" width="65"
-                                                                    height="65" class="rounded-circle" alt="" />
-                                                            </div>
-                                                            <div class="review-content ms-3">
-                                                                <div class="rates cursor-pointer fs-6">
-                                                                    <p>Pengupload</p>
+                                                        
+                                                        @foreach ($comments as $comment)
+                                                            <div class="d-flex align-items-start">
+                                                                <div class="review-user">
+                                                                    @php
+                                                                        $userId = $comment->user->id; // Ambil id pengguna
+                                                                        $bgColors = array('#007bff', '#6610f2', '#6f42c1', '#e83e8c', '#fd7e14', '#ffc107', '#28a745', '#20c997', '#17a2b8', '#dc3545');
+                                                                        $bgColor = $bgColors[$userId % count($bgColors)]; // Pilih warna latar belakang sesuai dengan id pengguna
+                                                                    @endphp
+                                                                    <div style="background-color: {{ $bgColor }}; width: 65px; height: 65px; text-align: center; line-height: 65px; color: #fff; border-radius: 50%;">
+                                                                        {{ strtoupper(substr($comment->user->name, 0, 1)) }} {{-- Tampilkan huruf pertama dari nama pengguna --}}
+                                                                    </div>
                                                                 </div>
-                                                                <div class="d-flex align-items-center mb-2">
-                                                                    <h6 class="mb-0">Nama</h6>
-                                                                    <p class="mb-0 ms-auto">
-                                                                        February 16, 2021
+                                                                <!--
+                                                                <div class="review-user">
+                                                                    <img src="assets/images/avatars/02.png" width="65"
+                                                                        height="65" class="rounded-circle" alt="" />
+                                                                </div>
+                                                                -->
+                                                                <div class="review-content ms-3">
+                                                                    <div class="rates cursor-pointer fs-6">
+                                                                        <p>{{ $comment->user->role }}</p>
+                                                                    </div>
+                                                                    <div class="d-flex align-items-center mb-2">
+                                                                        <h6 class="mb-0">{{ $comment->user->name }}</h6>
+                                                                        <p class="mb-0 ms-auto">
+                                                                            {{ $comment->created_at->format('F d, Y') }}
+                                                                        </p>
+                                                                    </div>
+                                                                    <p>
+                                                                        {{ $comment->content }}
                                                                     </p>
                                                                 </div>
-                                                                <p>
-                                                                    Nesciunt tofu stumptown aliqua, retro
-                                                                    synth master cleanse. Mustache cliche
-                                                                    tempor, williamsburg carles vegan
-                                                                    helvetica. Reprehenderit butcher retro
-                                                                    keffiyeh dreamcatcher synth. Cosby sweater
-                                                                    eu banh mi, qui irure terry richardson ex
-                                                                    squid. Aliquip placeat salvia cillum
-                                                                    iphone. Seitan aliquip quis cardigan
-                                                                </p>
                                                             </div>
-                                                        </div>
-                                                        <hr />
-                                                        <div class="d-flex align-items-start">
-                                                            <div class="review-user">
-                                                                <img src="assets/images/avatars/02.png" width="65"
-                                                                    height="65" class="rounded-circle" alt="" />
-                                                            </div>
-                                                            <div class="review-content ms-3">
-                                                                <div class="rates cursor-pointer fs-6">
-                                                                    <p>Penilai</p>
-                                                                </div>
-                                                                <div class="d-flex align-items-center mb-2">
-                                                                    <h6 class="mb-0">Nama</h6>
-                                                                    <p class="mb-0 ms-auto">
-                                                                        February 22, 2021
-                                                                    </p>
-                                                                </div>
-                                                                <p>
-                                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                                    Possimus ea earum quos? Placeat consequuntur temporibus
-                                                                    quidem voluptates quas perferendis, reiciendis dicta!
-                                                                    Facere, laudantium. Hic ex explicabo sapiente debitis
-                                                                    odio sint.
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                        <hr />
-
+                                                            <hr />
+                                                        @endforeach
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!--
                                             <div class="col col-lg-4">
                                                 <div class="add-review">
                                                     <div class="form-body p-3 rounded border bg-light">
@@ -199,6 +200,23 @@
                                                             </button>
                                                         </div>
                                                     </div>
+                                                </div>
+                                            </div>
+                                            -->
+                                            <div class="col col-lg-4">
+                                                <div class="add-review">
+                                                    <form class="form-body p-3 rounded border bg-light" action="{{ route('dashboard.upload_response') }}" method="POST">
+                                                        @csrf <!-- Tambahkan CSRF token untuk keamanan -->
+                                                        <h5 class="mb-4">Tulis Tanggapan</h5>
+                                                        <input type="hidden" name="video_id" value="{{ $video->id }}">
+                                                        <div class="mb-3">
+                                                            <label for="response" class="form-label">Tanggapan</label>
+                                                            <textarea id="response" name="response" class="form-control" rows="3" required></textarea>
+                                                        </div>
+                                                        <div class="d-grid">
+                                                            <button type="submit" class="btn btn-primary btn-ecomm">Kirim</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>

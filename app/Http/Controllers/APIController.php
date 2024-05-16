@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -29,9 +30,20 @@ class APIController extends Controller
             $video->slug = pathinfo(str_replace('videos/', '', $video->path), PATHINFO_FILENAME);
             $video->result = $response->body();
             $video->save();
+
+            $user = $video->user;
+            $user_name = $user->name;
         } catch (\Exception $e) {
             $response = $e->getMessage();
         }
-        return view('dashboard.details', ['result' => $response, 'video'=>$video]);
+
+        $comments = Comment::where('video_id', $video->id)->get();
+
+        //return view('dashboard.details', ['result' => $response, 'video'=>$video]);
+        return view('dashboard.details', [
+            'result' => $response, // Mengambil isi JSON dari respons
+            'video' => $video,
+            'comments' => $comments
+        ]);
     }
 }

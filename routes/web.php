@@ -21,6 +21,7 @@ Route::middleware([
     Route::post('/dashboard/upload', [App\Http\Controllers\APIController::class, 'upload'])->name('dashboard.upload');
     Route::get('/dashboard/history', [App\Http\Controllers\VideoController::class, 'history'])->name('dashboard.history');
     Route::get('/dashboard/details/{video}', [App\Http\Controllers\VideoController::class, 'details'])->name('dashboard.details');
+    Route::post('/dashboard/upload-response', [App\Http\Controllers\CommentController::class, 'store'])->name('dashboard.upload_response');
 });
 
 // Admin routes

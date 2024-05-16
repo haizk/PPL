@@ -17,7 +17,7 @@
                             <h2 class="text-xl font-medium text-gray-900">{{ $video->title }}</h2>
                         </a>
                         <p class="text-gray-500 leading-relaxed">{{ $video->created_at->timezone('Etc/GMT-7') }}</p>
-                        <video class="mt-4 w-full" controls style="max-height: 500px">
+                        <video class="mt-4 w-full" controls style="max-height: 500px" controls>
                             <source src="{{ asset('storage/' . $video->path) }}">
                             Your browser does not support the video tag.
                         </video>
@@ -41,15 +41,12 @@
     <div class="page-content-wrapper">
         <!-- start page content-->
         <div class="page-content">
-
-
             <!--start shop area-->
             <section class="shop-page">
                 <div class="shop-container">
                     <div class="card shadow-sm border-0">
                         <div class="card-body">
                             <div class="row">
-
                                 <div class="col-12 col-xl">
                                     <div class="product-wrapper">
                                         <div class="product-grid">
@@ -59,6 +56,7 @@
                                                 </p>
                                             @else
                                                 @foreach ($videos as $video)
+                                                    
                                                     <div class="card product-card">
                                                         <a href="javascript:;" class="position-absolute end-0 top-0 m-3">
                                                             {{-- <div class="product-wishlist">
@@ -68,9 +66,7 @@
                                                         <div class="row g-0">
                                                             <div class="col-md-4">
                                                                 <div class="p-3">
-
-                                                                    <video class="mt-4 w-full" controls
-                                                                        class="img-fluid rounded">
+                                                                    <video controls class="img-fluid rounded">
                                                                         <source
                                                                             src="{{ asset('storage/' . $video->path) }}">
                                                                         Your browser does not support the video tag.
@@ -82,11 +78,9 @@
                                                                 <div class="card-body">
                                                                     <div class="product-info">
                                                                         <h5>{{ $video->title }}</h5>
-                                                                        <a href="{{ route('edit') }}">
                                                                             <h6 class="product-name mb-2">
                                                                                 Deskripsi
                                                                             </h6>
-                                                                        </a>
                                                                         <p class="card-text">
                                                                             Lorem ipsum dolor sit amet consectetur
                                                                             adipisicing elit.
@@ -98,7 +92,7 @@
                                                                         </p>
 
                                                                         <h6>Diupload Oleh</h6>
-                                                                        <p>Nama</p>
+                                                                        <p>{{ $video->user->name }}</p>
                                                                         <h6>Tanggal Upload</h6>
                                                                         <p>{{ $video->created_at->timezone('Etc/GMT-7') }}
                                                                         </p>
@@ -122,8 +116,6 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-
-
                                                         </div>
                                                     </div>
                                                 @endforeach

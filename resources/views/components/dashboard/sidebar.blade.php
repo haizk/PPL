@@ -68,14 +68,16 @@
                 </li>
             </ul>
         </li> --}}
-        <li>
-            <a href="{{ route('dashboard.upload') }}">
-                <div class="parent-icon">
-                    <ion-icon name="person-circle-outline"></ion-icon>
-                </div>
-                <div class="menu-title">Upload Video</div>
-            </a>
-        </li>
+        @if(auth()->user()->role === 'user')
+            <li>
+                <a href="{{ route('dashboard.upload') }}">
+                    <div class="parent-icon">
+                        <ion-icon name="person-circle-outline"></ion-icon>
+                    </div>
+                    <div class="menu-title">Upload Video</div>
+                </a>
+            </li>
+        @endif
         <li>
             <a href="{{ route('dashboard.history') }}">
                 <div class="parent-icon">
@@ -92,8 +94,6 @@
                 <div class="menu-title">Tabel</div>
             </a>
         </li>
-
-
     </ul>
     <!--end navigation-->
 </aside>
