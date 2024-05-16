@@ -53,7 +53,8 @@
             </div> --}}
 
             <div class="card">
-                <form action="{{ route('dashboard.upload') }}" method="post" enctype="multipart/form-data" class="mt-6">
+                <form action="{{ route('dashboard.upload') }}" id="uploadForm" method="post" enctype="multipart/form-data"
+                    class="mt-6">
                     @csrf
                     <div class="card-header">
                         <h6 class="mb-0">File Input</h6>
@@ -62,20 +63,22 @@
                         <div class="mb-3">
                             <label for="formFile" class="form-label">supported formats: mp4, quicktime, webm,
                                 matroska</label>
-                            <input type="file" name="file"
+                            <input type="file" name="file" onchange="uploadImage()"
                                 accept="video/mp4,video/quicktime,video/webm,video/x-matroska" class="form-control"
                                 type="file" />
-                            <button type="submit" class="bg-blue-500 text-white p-2 w-full mt-4">Upload</button>
+
 
                         </div>
                     </div>
                 </form>
             </div>
-
-
         </div>
 
-
+        <script>
+            function uploadImage() {
+                document.getElementById('uploadForm').submit();
+            }
+        </script>
 
         {{-- <div class="card">
             <div class="card-header">

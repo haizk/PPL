@@ -1,98 +1,55 @@
-<!--start top header-->
-<header class="top-header">
-    <nav class="navbar navbar-expand gap-3">
-        <div class="toggle-icon">
-            <ion-icon name="menu-outline"></ion-icon>
+<div class="app-header">
+    <div class="app-header-left">
+        <span class="app-icon"></span>
+        <p class="app-name">HoopsVision</p>
+        <div class="search-wrapper">
+            <input class="search-input" type="text" placeholder="Search" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-search"
+                viewBox="0 0 24 24">
+                <defs></defs>
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="M21 21l-4.35-4.35"></path>
+            </svg>
         </div>
+    </div>
+    <div class="app-header-right">
+        <button class="mode-switch" title="Switch Theme">
+            <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
+                <defs></defs>
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+            </svg>
+        </button>
+        {{-- <button class="add-btn" title="Add New Project">
+                    <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round" class="feather feather-plus">
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                    </svg>
+                </button>
+                <button class="notification-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="feather feather-bell">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+                    </svg>
+                </button> --}}
+        <button class="profile-btn">
+            <i data-feather="user"></i>
+            <span>User</span>
+        </button>
+    </div>
+    <button class="messages-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-message-circle">
+            <path
+                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+        </svg>
+    </button>
 
-        <form class="searchbar">
-            <div class="position-absolute top-50 translate-middle-y search-icon ms-3">
-                <ion-icon name="search-outline"></ion-icon>
-            </div>
-            <input class="form-control" type="text" placeholder="Search for anything">
-            <div class="position-absolute top-50 translate-middle-y search-close-icon">
-                <ion-icon name="close-outline"></ion-icon>
-            </div>
-        </form>
-        <div class="top-navbar-right ms-auto">
 
-            <ul class="navbar-nav align-items-center">
-
-                <li class="nav-item">
-                    <a class="nav-link dark-mode-icon" href="javascript:;">
-                        <div class="mode-icon">
-                            <ion-icon name="moon-outline"></ion-icon>
-                        </div>
-                    </a>
-                </li>
-
-
-                <li class="nav-item dropdown dropdown-user-setting">
-                    <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;"
-                        data-bs-toggle="dropdown">
-                        <div class="user-setting">
-                            <img src=" {{ asset('assets/images/avatars/06.png') }}" class="user-img" alt="">
-                        </div>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li>
-                            <a class="dropdown-item" href="javascript:;">
-                                <div class="d-flex flex-row align-items-center gap-2">
-                                    <img src="{{ asset('assets/images/avatars/06.png') }}" alt=""
-                                        class="rounded-circle" width="54" height="54">
-                                    <div class="">
-                                        <h6 class="mb-0 dropdown-user-name">{{ Auth::user()->name }}</h6>
-                                        <small
-                                            class="mb-0 dropdown-user-designation text-secondary">{{ Auth::user()->role }}</small>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="{{ route('profile.show') }}">
-                                <div class="d-flex align-items-center">
-                                    <div class="">
-                                        <ion-icon name="person-outline"></ion-icon>
-                                    </div>
-                                    <div class="ms-3"><span>Profile</span></div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="{{ route('dashboard') }}">
-                                <div class="d-flex align-items-center">
-                                    <div class="">
-                                        <ion-icon name="speedometer-outline"></ion-icon>
-                                    </div>
-                                    <div class="ms-3"><span>Dashboard</span></div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li>
-                            <form method="POST" action="{{ route('logout') }}" x-data>
-                                @csrf
-                                <a class="dropdown-item" href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                                    <div class="d-flex align-items-center">
-                                        <div class="">
-                                            <ion-icon name="log-out-outline"></ion-icon>
-                                        </div>
-                                        <div class="ms-3"><span>Logout</span></div>
-                                    </div>
-                                </a>
-                            </form>
-                        </li>
-                    </ul>
-                </li>
-
-            </ul>
-
-        </div>
-    </nav>
-</header>
-<!--end top header-->
+</div>

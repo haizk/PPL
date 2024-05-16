@@ -10,11 +10,11 @@ class VideoController extends Controller
     public function history()
     {
         if (auth()->user()->role === 'admin') {
-            $videos = \App\Models\Video::orderBy('created_at', 'desc')->paginate(3);
+            $videos = \App\Models\Video::orderBy('created_at', 'desc')->paginate(6);
         } else {
-            $videos = \App\Models\Video::where('user_id', auth()->id())->orderBy('created_at', 'desc')->paginate(3);
+            $videos = \App\Models\Video::where('user_id', auth()->id())->orderBy('created_at', 'desc')->paginate(6);
         }
-        
+
         return view('dashboard.history', ['videos' => $videos]);
     }
 

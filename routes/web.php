@@ -43,7 +43,7 @@ Route::get('/auth/google/callback', [App\Http\Controllers\OAuthController::class
 
 // main dashboard
 Route::get('/dashboard-index', function () {
-       return view('dashboard.index');
+       return view('dashboard.index1');
    })->name('dashboard-index1');
 
 //    add video
