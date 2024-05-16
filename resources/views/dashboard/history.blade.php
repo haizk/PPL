@@ -85,7 +85,7 @@
                         <a href="{{ route('dashboard.details', $video) }}">
                             <div class="project-box" style="background-color: #d5deff">
                                 <div class="project-box-header">
-                                    <video style="width: 100% !important;" controls>
+                                    <video style="width: 100%" controls>
                                         <source src="{{ asset('storage/' . $video->path) }}">
                                         Your browser does not support the video tag.
                                     </video>
