@@ -33,6 +33,7 @@ class APIController extends Controller
 
             $user = $video->user;
             $user_name = $user->name;
+
         } catch (\Exception $e) {
             $response = $e->getMessage();
         }

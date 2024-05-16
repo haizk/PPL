@@ -251,6 +251,10 @@
         <i data-feather="upload"></i>
     </a>
 
+    <a href="{{ route('profile.show') }}" class="app-sidebar-link">
+        <i data-feather="user-plus"></i>
+    </a>
+
     <form method="POST" action="{{ route('logout') }}" x-data>
         @csrf
         <a class="app-sidebar-link" href="{{ route('logout') }}" @click.prevent="$root.submit();">

@@ -1,8 +1,10 @@
 <div class="app-header">
     <div class="app-header-left">
         <span class="app-icon"></span>
-        <p class="app-name">HoopsVision</p>
-        <div class="search-wrapper">
+        <a href="{{ route('dashboard') }}">
+            <p class="app-name">HoopsVision</p>
+        </a>
+        {{-- <div class="search-wrapper">
             <input class="search-input" type="text" placeholder="Search" />
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
                 stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-search"
@@ -11,7 +13,7 @@
                 <circle cx="11" cy="11" r="8"></circle>
                 <path d="M21 21l-4.35-4.35"></path>
             </svg>
-        </div>
+        </div> --}}
     </div>
     <div class="app-header-right">
         <button class="mode-switch" title="Switch Theme">
@@ -38,8 +40,9 @@
                     </svg>
                 </button> --}}
         <button class="profile-btn">
-            <i data-feather="user"></i>
-            <span>User</span>
+            <a style="display: flex" href="{{ route('profile.show') }}"><i data-feather="user"></i>
+                <span>{{ Auth::user()->name }}</span></a>
+
         </button>
     </div>
     <button class="messages-btn">

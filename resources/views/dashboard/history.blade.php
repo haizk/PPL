@@ -81,12 +81,26 @@
                 </p>
             @else
                 @foreach ($videos as $video)
+                    @php
+                        $result = json_decode($video->result, true); // Decode the JSON string
+                    @endphp
+                    @if ($result)
+                        @php
+
+                            $rawConfidence = number_format($result['confidence'] * 100, 2);
+
+                            $displayConfidence = $rawConfidence . '%';
+
+                            $label = $result['label'] == 0 ? 'Dribbling' : 'Dunk';
+
+                        @endphp
+                    @endif
                     <div class="project-box-wrapper">
                         <a href="{{ route('dashboard.details', $video) }}">
                             <div class="project-box" style="background-color: #d5deff">
                                 <div class="project-box-header">
-                                    <video style="width: 100%" controls>
-                                        <source src="{{ asset('storage/' . $video->path) }}">
+                                    <video style="width: 100%; border-radius:1rem;" controls>
+                                        <source type="video/mp4" src="{{ asset('storage/' . $video->path) }}">
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
@@ -95,14 +109,33 @@
                                     <p class="box-content-subheader">{{ $video->created_at->timezone('Etc/GMT-7') }}</p>
                                 </div>
                                 <div class="box-progress-wrapper">
-                                    <p class="box-progress-header">Confident</p>
-                                    <div class="box-progress-bar">
-                                        <span class="box-progress" style="width: 40%; background-color: #4067f9"></span>
-                                    </div>
-                                    <p class="box-progress-percentage">40%</p>
+                                    <p class="box-progress-header">Confidence</p>
+                                    @if ($rawConfidence >= 99)
+                                        <div class="box-progress-bar">
+                                            <span class="box-progress"
+                                                style="width: 100%; height: 10px; background-color: #afeca6; border: 1px solid #000000"></span>
+                                        </div>
+                                        <p class="box-progress-percentage">{{ $displayConfidence }}</p>
+                                    @elseif ($rawConfidence >= 90)
+                                        <div class="box-progress-bar">
+                                            <span class="box-progress"
+                                                style="height: 10px border: 1px solid width: 90%; background-color: #4067f9"></span>
+                                        </div>
+                                        <p class="box-progress-percentage">{{ $displayConfidence }}</p>
+                                    @else
+                                        <div class="box-progress-bar">
+                                            <span class="box-progress"
+                                                style="height: 10px border: 1px solid width: 80%; background-color: #dd6422"></span>
+                                            <!-- Adjusted width from 500% to a feasible 80% -->
+                                        </div>
+                                        <p class="box-progress-percentage">{{ $displayConfidence }}</p>
+                                    @endif
+
+
                                 </div>
+
                                 <div class="project-box-footer">
-                                    <div class="days-left" style="color: #4067f9">Basket</div>
+                                    <div class="days-left" style="color: #4067f9">{{ $label }}</div>
                                 </div>
                             </div>
                         </a>
@@ -110,7 +143,7 @@
                 @endforeach
             @endif
 
-            {{ $videos->links() }}
         </div>
+        {{ $videos->links() }}
     </div>
 @endsection
