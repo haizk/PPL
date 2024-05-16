@@ -36,10 +36,14 @@ class APIController extends Controller
         } catch (\Exception $e) {
             $response = $e->getMessage();
         }
+
+        $comments = Comment::where('video_id', $video->id)->get();
+
         //return view('dashboard.details', ['result' => $response, 'video'=>$video]);
         return view('dashboard.details', [
             'result' => $response, // Mengambil isi JSON dari respons
-            'video' => $video
+            'video' => $video,
+            'comments' => $comments
         ]);
     }
 }

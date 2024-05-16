@@ -18,7 +18,7 @@
                                                     data-slider-id="1">
                                                     <div class="item">
                                                         
-                                                        <video  controls class="img-fluid">
+                                                        <video controls class="img-fluid">
                                                             <source src="{{ asset('storage/' . $video->path) }}">
                                                             Your browser does not support the video tag.
                                                         </video>
@@ -150,9 +150,21 @@
                                                         @foreach ($comments as $comment)
                                                             <div class="d-flex align-items-start">
                                                                 <div class="review-user">
+                                                                    @php
+                                                                        $userId = $comment->user->id; // Ambil id pengguna
+                                                                        $bgColors = array('#007bff', '#6610f2', '#6f42c1', '#e83e8c', '#fd7e14', '#ffc107', '#28a745', '#20c997', '#17a2b8', '#dc3545');
+                                                                        $bgColor = $bgColors[$userId % count($bgColors)]; // Pilih warna latar belakang sesuai dengan id pengguna
+                                                                    @endphp
+                                                                    <div style="background-color: {{ $bgColor }}; width: 65px; height: 65px; text-align: center; line-height: 65px; color: #fff; border-radius: 50%;">
+                                                                        {{ strtoupper(substr($comment->user->name, 0, 1)) }} {{-- Tampilkan huruf pertama dari nama pengguna --}}
+                                                                    </div>
+                                                                </div>
+                                                                <!--
+                                                                <div class="review-user">
                                                                     <img src="assets/images/avatars/02.png" width="65"
                                                                         height="65" class="rounded-circle" alt="" />
                                                                 </div>
+                                                                -->
                                                                 <div class="review-content ms-3">
                                                                     <div class="rates cursor-pointer fs-6">
                                                                         <p>{{ $comment->user->role }}</p>

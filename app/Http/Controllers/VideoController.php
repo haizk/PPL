@@ -9,7 +9,12 @@ class VideoController extends Controller
 {
     public function history()
     {
-        $videos = \App\Models\Video::where('user_id', auth()->id())->paginate(3);
+        if (auth()->user()->role === 'admin') {
+            $videos = \App\Models\Video::orderBy('created_at', 'desc')->paginate(3);
+        } else {
+            $videos = \App\Models\Video::where('user_id', auth()->id())->orderBy('created_at', 'desc')->paginate(3);
+        }
+        
         return view('dashboard.history', ['videos' => $videos]);
     }
 
@@ -21,7 +26,7 @@ class VideoController extends Controller
             abort(403);
         }
 
-        $comments = Comment::where('video_id', $video->id)->get();
+        $comments = Comment::where('video_id', $video->id)->orderBy('created_at', 'desc')->get();
 
         return view('dashboard.details', [
             'video' => $video,
