@@ -1,45 +1,42 @@
-@extends('layouts.auth')
-@section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-5 col-lg-6 col-md-7 mx-auto">
-                <div class="reset-passowrd">
-                    <div class="card radius-10 w-100 mt-8">
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <h4>Reset password</h4>
-                                <p>
-                                    {{ __('Forgot your password? No problem. Just let us know
-                                                          your email address and we will email you a password reset
-                                                          link that will allow you to choose a new one.') }}
-                                </p>
-                            </div>
-                            @session('status')
-                                <div class="mb-4 font-medium text-sm text-green-600">
-                                    {{ $value }}
-                                </div>
-                            @endsession
+<!DOCTYPE html>
+<html lang="en">
 
-                            <x-validation-errors class="mb-4" />
-                            <form class="form-body row g-3" method="POST" action="{{ route('password.email') }}">
-                                @csrf
-                                <div class="col-12">
-                                    <label for="inputEmail" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email"
-                                        :value="old('email')" required autofocus autocomplete="username" />
-                                </div>
-                                <div class="col-12 col-lg-12">
-                                    <div class="d-grid">
-                                        <button type="Submit" class="btn btn-primary">
-                                            Send
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/login-style.css') }}" />
+</head>
+
+<body>
+    <!-- Regist -->
+    <div class="container" id="container">
+        <!-- login -->
+
+        <div class="form-container login-container">
+            <form method="POST" action="{{ route('password.email') }}">
+                @csrf
+                <h1>Reset Password</h1>
+                @session('status')
+                    <div class="mb-4 font-medium text-sm text-green-600">
+                        {{ $value }}
                     </div>
-                </div>
-            </div>
+                @endsession
+                <input type="email" id="email" name="email" :value="old('email')" required autofocus
+                    autocomplete="username" />
+
+                <button>Submit</button>
+
+            </form>
         </div>
+
+        <!-- overlay -->
+
+        <div class="overlay-container" style="background-image: url('assets/images/frame_2.webp')"></div>
     </div>
-@endsection
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
