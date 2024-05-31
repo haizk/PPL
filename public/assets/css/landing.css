@@ -117,7 +117,7 @@ nav .navigation .login:focus {
     transition: 0.25s;
 }
 .section1 main {
-    padding-top: 7rem;
+    padding: 7rem 0;
     display: flex;
 }
 

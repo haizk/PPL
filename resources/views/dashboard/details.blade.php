@@ -69,7 +69,8 @@
                         <input type="hidden" name="video_id" value="{{ $video->id }}">
                         <div class="mb-3">
 
-                            <textarea id="response" name="response" class="form-control" rows="3" required></textarea>
+                            <textarea style="width: 100%; aspect-ratio: 3/1;" id="response" name="response" class="form-control" rows="3"
+                                required></textarea>
                         </div>
                         <div class="d-grid">
                             <button type="submit" class="comment offset">Kirim</button>

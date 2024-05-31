@@ -14,7 +14,7 @@
         <div class="section">
             <div class="section1">
                 <nav>
-                    <div class="logo"><span>Logo</span></div>
+                    <div class="logo"><span>HoopsVision</span></div>
                     @if (Route::has('login'))
                         <div class="navigation">
                             @auth
@@ -38,7 +38,7 @@
                             </button>
                         </div>
                         <div class="under" data-aos="fade-right" data-aos-duration="1000">
-                            <img src="" alt="">
+                            <img src="{{ asset('assets/images/group5.svg') }}" alt="">
                             <div class="rectangle">
                                 <div class="atas">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="63" height="46" fill="none"
