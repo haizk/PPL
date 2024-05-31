@@ -42,10 +42,8 @@ class APIController extends Controller
 
 
         //return view('dashboard.details', ['result' => $response, 'video'=>$video]);
-        return view('dashboard.details', [
-            'result' => $response, // Mengambil isi JSON dari respons
+        return redirect()->route('dashboard.details', [
             'video' => $video,
-            'comments' => $comments
         ]);
     }
 }
